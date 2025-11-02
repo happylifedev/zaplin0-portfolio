@@ -1,0 +1,180 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 240 10% 98%;
+    --foreground: 240 10% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 10%;
+
+    --primary: 263 70% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 263 85% 70%;
+
+    --secondary: 200 80% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 5% 90%;
+    --muted-foreground: 240 5% 45%;
+
+    --accent: 180 80% 50%;
+    --accent-foreground: 240 10% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 10% 88%;
+    --input: 240 10% 90%;
+    --ring: 263 70% 60%;
+
+    --radius: 0.75rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(263 70% 60%), hsl(200 80% 55%));
+    --gradient-mesh: radial-gradient(at 40% 20%, hsl(263 70% 60% / 0.3) 0px, transparent 50%),
+                     radial-gradient(at 80% 0%, hsl(200 80% 55% / 0.2) 0px, transparent 50%),
+                     radial-gradient(at 0% 50%, hsl(180 80% 50% / 0.2) 0px, transparent 50%);
+    
+    --shadow-glow: 0 0 40px hsl(263 70% 60% / 0.3);
+    --shadow-elegant: 0 10px 40px -10px hsl(240 10% 10% / 0.1);
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 240 10% 8%;
+    --foreground: 240 5% 96%;
+
+    --card: 240 10% 12%;
+    --card-foreground: 240 5% 96%;
+
+    --popover: 240 10% 10%;
+    --popover-foreground: 240 5% 96%;
+
+    --primary: 263 70% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 263 85% 70%;
+
+    --secondary: 200 80% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 10% 18%;
+    --muted-foreground: 240 5% 60%;
+
+    --accent: 180 80% 50%;
+    --accent-foreground: 240 5% 96%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 10% 18%;
+    --input: 240 10% 16%;
+    --ring: 263 70% 60%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(263 70% 60%), hsl(200 80% 55%));
+    --gradient-mesh: radial-gradient(at 40% 20%, hsl(263 70% 60% / 0.4) 0px, transparent 50%),
+                     radial-gradient(at 80% 0%, hsl(200 80% 55% / 0.3) 0px, transparent 50%),
+                     radial-gradient(at 0% 50%, hsl(180 80% 50% / 0.3) 0px, transparent 50%);
+    
+    --shadow-glow: 0 0 50px hsl(263 70% 60% / 0.5);
+    --shadow-elegant: 0 10px 40px -10px hsl(0 0% 0% / 0.5);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    cursor: none !important;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .mesh-gradient {
+    background-image: var(--gradient-mesh);
+  }
+
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .skill-bar {
+    @apply relative h-2 bg-muted rounded-full overflow-hidden;
+  }
+
+  .skill-fill {
+    @apply absolute inset-y-0 left-0 rounded-full;
+    background: var(--gradient-primary);
+    animation: skillFill 2s ease-out forwards;
+  }
+}
+
+@keyframes skillFill {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--skill-width);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 20px hsl(263 70% 60% / 0.4);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 40px hsl(263 70% 60% / 0.6);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.6s ease-out forwards;
+}
