@@ -94,17 +94,6 @@ const projects: Project[] = [
     image: creationAutomationPlatform,
   },
   {
-    id: 6,
-    title: 'Creation-Automation-Platform',
-    description: 'Mirada.ai is an all-in-one AI platform offering chatbots, content generation, code assistance, image/video creation, and data analysis.',
-    category: 'fullstack',
-    tech: ['ai', 'chatbot', 'content', 'code', 'image', 'video'],
-    github: 'https://github.com/zaplin0/Unified-AI-Creation-Automation-Platform',
-    demo: 'https://mirada.ai',
-    fullDescription: 'Built with Next.js + FastAPI and powered by leading AI models, it provides scalable performance, secure architecture, and real-time analytics for businesses and creators.',
-    image: creationAutomationPlatform,
-  },
-  {
     id: 7,
     title: 'Solana-To-Do-List-DApp',
     description: 'A blockchain-powered task manager.',
