@@ -6,6 +6,11 @@ import { ExternalLink, Github } from 'lucide-react';
 import defiPlatform from '../assets/projects/1.jpg';
 import englishTranslator from '../assets/projects/2.jpg';
 import collectibleGame from '../assets/projects/3.jpg';
+import askMyPdf from '../assets/projects/4.jpg';
+import mintmeSolanaTokenCreator from '../assets/projects/5.jpg';
+import creationAutomationPlatform from '../assets/projects/6.jpg';
+import solanaToDoListDApp from '../assets/projects/7.jpg';
+
 
 type ProjectCategory = 'all' | 'fullstack' | 'blockchain';
 
@@ -57,36 +62,58 @@ const projects: Project[] = [
   },
   {
     id: 4,
-    title: 'Collectible-Game',
-    description: 'Spanish-to-English neural translation',
+    title: 'Ask-My-PDF',
+    description: 'A proof-of-concept app that answers questions from board game rulebook PDFs',
     category: 'fullstack',
-    tech: ['game', 'ethereum', 'cryptogs', 'smartcontract'],
-    github: 'https://github.com/zaplin0/Collectible-Game',
-    demo: 'https://cryptogs.io/',
-    fullDescription: 'A fully on-chain Pogs game built on an extended ERC-721 standard, featuring commit-reveal randomness, pack minting, and decentralized gameplay — it’s SLAMMER TIME on the blockchain!',
-    image: collectibleGame,
+    tech: ['python', 'llm', 'pdf', 'rag'],
+    github: 'https://github.com/zaplin0/Ask-My-PDF',
+    demo: 'https://sharly.ai',
+    fullDescription: 'A proof-of-concept app that answers questions from board game rulebook PDFs. Uses RALM + HyDE retrieval techniques with GPT to provide context-based answers. Simple setup and supports local, Redis, or S3 storage options.',
+    image: askMyPdf,
   },
   {
     id: 5,
-    title: 'Collectible-Game',
-    description: 'Spanish-to-English neural translation',
+    title: 'Mintme-Solana-Token-Creator',
+    description: 'A plug-and-play React widget for creating Solana tokens effortlessly.',
     category: 'blockchain',
-    tech: ['game', 'ethereum', 'cryptogs', 'smartcontract'],
-    github: 'https://github.com/zaplin0/Collectible-Game',
-    demo: 'https://cryptogs.io/',
-    fullDescription: 'A fully on-chain Pogs game built on an extended ERC-721 standard, featuring commit-reveal randomness, pack minting, and decentralized gameplay — it’s SLAMMER TIME on the blockchain!',
-    image: collectibleGame,
+    tech: ['react', 'solana', 'widget', 'solana-program'],
+    github: 'https://github.com/zaplin0/Mintme-React-Widget-Solana-Token-Creator',
+    demo: 'https://mintme.dev',
+    fullDescription: 'A plug-and-play React widget for creating Solana tokens effortlessly. Powered by mintme-sdk, it offers customizable themes, IPFS integration, partner fees, real-time logs, and full TypeScript support — perfect for developers integrating token creation into their apps.',
+    image: mintmeSolanaTokenCreator,
   },
   {
     id: 6,
-    title: 'Collectible-Game',
-    description: 'Spanish-to-English neural translation',
+    title: 'Creation-Automation-Platform',
+    description: 'Mirada.ai is an all-in-one AI platform offering chatbots, content generation, code assistance, image/video creation, and data analysis.',
+    category: 'fullstack',
+    tech: ['ai', 'chatbot', 'content', 'code', 'image', 'video'],
+    github: 'https://github.com/zaplin0/Unified-AI-Creation-Automation-Platform',
+    demo: 'https://mirada.ai',
+    fullDescription: 'Built with Next.js + FastAPI and powered by leading AI models, it provides scalable performance, secure architecture, and real-time analytics for businesses and creators.',
+    image: creationAutomationPlatform,
+  },
+  {
+    id: 6,
+    title: 'Creation-Automation-Platform',
+    description: 'Mirada.ai is an all-in-one AI platform offering chatbots, content generation, code assistance, image/video creation, and data analysis.',
+    category: 'fullstack',
+    tech: ['ai', 'chatbot', 'content', 'code', 'image', 'video'],
+    github: 'https://github.com/zaplin0/Unified-AI-Creation-Automation-Platform',
+    demo: 'https://mirada.ai',
+    fullDescription: 'Built with Next.js + FastAPI and powered by leading AI models, it provides scalable performance, secure architecture, and real-time analytics for businesses and creators.',
+    image: creationAutomationPlatform,
+  },
+  {
+    id: 7,
+    title: 'Solana-To-Do-List-DApp',
+    description: 'A blockchain-powered task manager.',
     category: 'blockchain',
-    tech: ['game', 'ethereum', 'cryptogs', 'smartcontract'],
-    github: 'https://github.com/zaplin0/Collectible-Game',
-    demo: 'https://cryptogs.io/',
-    fullDescription: 'A fully on-chain Pogs game built on an extended ERC-721 standard, featuring commit-reveal randomness, pack minting, and decentralized gameplay — it’s SLAMMER TIME on the blockchain!',
-    image: collectibleGame,
+    tech: ['solana', 'dapp', 'smartcontract', 'manager'],
+    github: 'https://github.com/zaplin0/Solana-To-Do-List-DApp',
+    demo: 'https://chodo.netlify.app',
+    fullDescription: 'A blockchain-powered task manager. Deploy or connect to devnet/localnet, update app.config.json, and start with npm run web:start.',
+    image: solanaToDoListDApp,
   },
  
 ];
