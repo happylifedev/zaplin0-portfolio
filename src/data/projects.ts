@@ -16,9 +16,9 @@ export const projects: Project[] = [
     category: 'blockchain',
     description: 'A decentralized lending platform built on Ethereum with automated market making and yield farming capabilities.',
     technologies: ['Solidity', 'Ethers.js', 'React', 'Hardhat'],
-    github: 'https://github.com',
-    demo: 'https://demo.com',
-    image: 'defi-protocol'
+    github: 'https://github.com/zaplin0/Ethers.js-DApp',
+    demo: 'https://blog.logrocket.com/building-dapp-ethers-js',
+    image: '../assets/projects/1.jpg'
   },
   {
     id: 2,
