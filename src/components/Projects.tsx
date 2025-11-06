@@ -4,6 +4,8 @@ import { Card } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { ExternalLink, Github } from 'lucide-react';
 import defiPlatform from '../assets/projects/1.jpg';
+import englishTranslator from '../assets/projects/2.jpg';
+import collectibleGame from '../assets/projects/3.jpg';
 
 type ProjectCategory = 'all' | 'fullstack' | 'blockchain';
 
@@ -22,15 +24,37 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: 'Pumpfun',
-    description: 'Tools for Solana meme trading.',
+    title: 'Ethers.js-DApp',
+    description: '',
     category: 'blockchain',
-    tech: ['launchpad', 'solana', 'typescript', 'pump'],
-    github: 'https://github.com/happylifedev/Solana-Meme-Trade-Tools',
-    demo: 'https://dumpfun.vercel.app',
-    fullDescription: 'Tools for Solana meme trading — track launchpads, view charts, and trade fast with Axiom or Gmgn.',
+    tech: ['ethereum', 'dapp', 'web3js', ],
+    github: 'https://github.com/zaplin0/Ethers.js-DApp',
+    demo: 'https://blog.logrocket.com/building-dapp-ethers-js',
+    fullDescription: 'A beginner-friendly Ethereum DApp to connect wallets, read USDC balance, and transfer tokens using Ethers.js.',
     image: defiPlatform,
-  }
+  },
+  {
+    id: 2,
+    title: 'English-Translator',
+    description: 'Spanish-to-English neural translation',
+    category: 'fullstack',
+    tech: ['python', 'marian', 'nmt', 'translation'],
+    github: 'https://github.com/zaplin0/Spanish-to-English-Translator',
+    demo: 'https://www.stars21.com/translator/english/fula',
+    fullDescription: 'A sample project that trains a Spanish-to-English neural translation model using Marian NMT. Includes training scripts, helper tools, and a demo translation server.',
+    image: englishTranslator,
+  },
+  {
+    id: 3,
+    title: 'Collectible-Game',
+    description: 'Spanish-to-English neural translation',
+    category: 'blockchain',
+    tech: ['game', 'ethereum', 'cryptogs', 'smartcontract'],
+    github: 'https://github.com/zaplin0/Collectible-Game',
+    demo: 'https://cryptogs.io/',
+    fullDescription: 'A fully on-chain Pogs game built on an extended ERC-721 standard, featuring commit-reveal randomness, pack minting, and decentralized gameplay — it’s SLAMMER TIME on the blockchain!',
+    image: collectibleGame,
+  },
  
 ];
 
@@ -69,7 +93,7 @@ const Projects = () => {
             variant={category === 'fullstack' ? 'default' : 'outline'}
             onClick={() => { setCategory('fullstack'); setVisibleCount(9); }}
           >
-            Full-Stack
+            AI
           </Button>
           <Button
             variant={category === 'blockchain' ? 'default' : 'outline'}
