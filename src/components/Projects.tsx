@@ -59,7 +59,7 @@ const projects: Project[] = [
     id: 4,
     title: 'Collectible-Game',
     description: 'Spanish-to-English neural translation',
-    category: 'blockchain',
+    category: 'fullstack',
     tech: ['game', 'ethereum', 'cryptogs', 'smartcontract'],
     github: 'https://github.com/zaplin0/Collectible-Game',
     demo: 'https://cryptogs.io/',
