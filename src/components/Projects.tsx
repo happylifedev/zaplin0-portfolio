@@ -5,142 +5,154 @@ import { Github, ExternalLink } from 'lucide-react';
 import { projects, type Project } from '@/data/projects';
 
 const Projects = () => {
-  const [filter, setFilter] = useState<'all' | 'blockchain' | 'ai'>('all');
-  const [showAll, setShowAll] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(9);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [category, setCategory] = useState<ProjectCategory>('all');
 
-  const filteredProjects = projects.filter(p => filter === 'all' || p.category === filter);
-  const displayedProjects = showAll ? filteredProjects : filteredProjects.slice(0, 9);
+  const filteredProjects = category === 'all' 
+    ? projects 
+    : projects.filter(p => p.category === category);
+
+  const showMore = () => {
+    setVisibleCount(prev => Math.min(prev + 9, filteredProjects.length));
+  };
+
+  const showLess = () => {
+    setVisibleCount(9);
+  };
 
   return (
-    <section className="py-20 px-4">
-      <div className="container mx-auto max-w-7xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 gradient-text">
-          Featured Projects
+    <section className="py-20 relative" id="projects">
+      <div className="container px-4">
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-8">
+          <span className="gradient-text">Featured Projects</span>
         </h2>
 
-        {/* Filter Buttons */}
-        <div className="flex justify-center gap-4 mb-12">
+        <div className="flex justify-center gap-4 mb-12 flex-wrap">
           <Button
-            onClick={() => setFilter('all')}
-            variant={filter === 'all' ? 'default' : 'outline'}
-            className="glow-effect"
+            variant={category === 'all' ? 'default' : 'outline'}
+            onClick={() => { setCategory('all'); setVisibleCount(9); }}
           >
             All Projects
           </Button>
           <Button
-            onClick={() => setFilter('blockchain')}
-            variant={filter === 'blockchain' ? 'default' : 'outline'}
-            className="glow-effect"
+            variant={category === 'fullstack' ? 'default' : 'outline'}
+            onClick={() => { setCategory('fullstack'); setVisibleCount(9); }}
+          >
+            Full-Stack
+          </Button>
+          <Button
+            variant={category === 'blockchain' ? 'default' : 'outline'}
+            onClick={() => { setCategory('blockchain'); setVisibleCount(9); }}
           >
             Blockchain
           </Button>
-          <Button
-            onClick={() => setFilter('ai')}
-            variant={filter === 'ai' ? 'default' : 'outline'}
-            className="glow-effect"
-          >
-            AI & ML
-          </Button>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {displayedProjects.map((project, index) => (
-            <div
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-8">
+          {filteredProjects.slice(0, visibleCount).map((project, idx) => (
+            <Card
               key={project.id}
+              className="overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer group glow-primary hover:glow-secondary border-2"
               onClick={() => setSelectedProject(project)}
-              className="group bg-card border border-border rounded-xl p-6 hover:border-primary transition-all hover:scale-105 hover:glow-effect animate-slide-in"
-              style={{ animationDelay: `${index * 0.1}s`, cursor: 'pointer' }}
+              style={{ animationDelay: `${idx * 0.1}s` }}
             >
-              <div className="w-full h-48 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                {/* Image placeholder - replace with actual project screenshots */}
-                <div className="w-full h-full flex items-center justify-center bg-muted/50">
-                  <span className="text-sm text-muted-foreground">Project Image</span>
+              <div className="relative h-48 overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold mb-2 group-hover:gradient-text transition-all">
+                  {project.title}
+                </h3>
+                <p className="text-muted-foreground mb-4">{project.description}</p>
+                <div className="flex flex-wrap gap-2">
+                  {project.tech.slice(0, 3).map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 bg-primary/10 text-primary rounded text-xs"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
-              <h3 className="text-xl font-bold mb-2 group-hover:gradient-text transition-all">
-                {project.title}
-              </h3>
-              <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {project.technologies.slice(0, 3).map(tech => (
-                  <span key={tech} className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </div>
+            </Card>
           ))}
         </div>
 
-        {/* Show More Button */}
-        {filteredProjects.length > 9 && (
+        {visibleCount < filteredProjects.length && (
           <div className="text-center">
-            <Button
-              onClick={() => setShowAll(!showAll)}
-              size="lg"
-              variant="outline"
-              className="glow-effect"
-            >
-              {showAll ? 'Show Less' : 'Show More Projects'}
+            <Button onClick={showMore} size="lg">
+              Show More Projects
             </Button>
           </div>
         )}
 
-        {/* Project Detail Modal */}
-        <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-          <DialogContent className="max-w-3xl bg-card/95 backdrop-blur-xl border-primary/20">
-            <DialogHeader>
-              <DialogTitle className="text-3xl gradient-text">{selectedProject?.title}</DialogTitle>
-            </DialogHeader>
-            
-            {selectedProject && (
-              <div className="space-y-6">
-                <div className="w-full h-64 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-lg flex items-center justify-center overflow-hidden">
-                  {/* Image placeholder - replace with actual project screenshots */}
-                  <div className="w-full h-full flex items-center justify-center bg-muted/50">
-                    <span className="text-muted-foreground">Project Image</span>
-                  </div>
-                </div>
+        {visibleCount >= filteredProjects.length && filteredProjects.length > 9 && (
+          <div className="text-center">
+            <Button onClick={showLess} variant="outline" size="lg">
+              Show Less
+            </Button>
+          </div>
+        )}
+      </div>
 
+      <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
+        <DialogContent className="max-w-3xl bg-card/95 backdrop-blur-lg border-2">
+          {selectedProject && (
+            <>
+              <div className="relative h-64 -mx-6 -mt-6 mb-4 overflow-hidden rounded-t-lg">
+                <img 
+                  src={selectedProject.image} 
+                  alt={selectedProject.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <DialogHeader>
+                <DialogTitle className="text-2xl gradient-text">
+                  {selectedProject.title}
+                </DialogTitle>
+                <DialogDescription className="text-base pt-4">
+                  {selectedProject.fullDescription}
+                </DialogDescription>
+              </DialogHeader>
+              <div className="space-y-4">
                 <div>
-                  <h4 className="text-lg font-semibold mb-2">Description</h4>
-                  <p className="text-muted-foreground">{selectedProject.description}</p>
-                </div>
-
-                <div>
-                  <h4 className="text-lg font-semibold mb-3">Technologies Used</h4>
+                  <h4 className="font-semibold mb-2">Technologies Used:</h4>
                   <div className="flex flex-wrap gap-2">
-                    {selectedProject.technologies.map(tech => (
-                      <span key={tech} className="px-4 py-2 bg-primary/10 text-primary rounded-lg">
+                    {selectedProject.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 bg-primary/10 text-primary rounded-md"
+                      >
                         {tech}
                       </span>
                     ))}
                   </div>
                 </div>
-
-                <div className="flex gap-4">
-                  <Button asChild className="flex-1 glow-effect">
+                <div className="flex gap-4 pt-4">
+                  <Button asChild>
                     <a href={selectedProject.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-2 h-5 w-5" />
-                      View Source
+                      <Github className="mr-2 h-4 w-4" />
+                      View Code
                     </a>
                   </Button>
-                  <Button asChild variant="outline" className="flex-1 glow-effect">
+                  <Button variant="outline" asChild>
                     <a href={selectedProject.demo} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="mr-2 h-5 w-5" />
+                      <ExternalLink className="mr-2 h-4 w-4" />
                       Live Demo
                     </a>
                   </Button>
                 </div>
               </div>
-            )}
-          </DialogContent>
-        </Dialog>
-      </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
