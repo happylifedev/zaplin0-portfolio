@@ -61,7 +61,7 @@ const Hero = () => {
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-4 justify-center">
+          {/* <div className="flex flex-wrap gap-4 justify-center">
             <Button 
               size="lg" 
               className="glow-effect group"
@@ -74,7 +74,7 @@ const Hero = () => {
             <Button size="lg" variant="outline" className="glow-effect">
               Contact Me
             </Button>
-          </div>
+          </div> */}
 
           {/* Social Links */}
           <div className="flex gap-4 pt-8">
