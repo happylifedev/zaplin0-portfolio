@@ -104,6 +104,17 @@ const projects: Project[] = [
     fullDescription: 'A blockchain-powered task manager. Deploy or connect to devnet/localnet, update app.config.json, and start with npm run web:start.',
     image: solanaToDoListDApp,
   },
+  {
+    id: 8,
+    title: 'Solana-To-Do-List-DApp',
+    description: 'A blockchain-powered task manager.',
+    category: 'blockchain',
+    tech: ['solana', 'dapp', 'smartcontract', 'manager'],
+    github: 'https://github.com/zaplin0/Solana-To-Do-List-DApp',
+    demo: 'https://chodo.netlify.app',
+    fullDescription: 'A blockchain-powered task manager. Deploy or connect to devnet/localnet, update app.config.json, and start with npm run web:start.',
+    image: solanaToDoListDApp,
+  },
  
 ];
 

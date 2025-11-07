@@ -6,20 +6,20 @@ const Contact = () => {
     {
       icon: Mail,
       label: 'Gmail',
-      value: 'your.email@gmail.com',
-      href: 'mailto:your.email@gmail.com',
+      value: 'strongmandev1@gmail.com',
+      href: 'mailto:strongmandev1@gmail.com',
     },
     {
       icon: Github,
       label: 'GitHub',
-      value: 'github.com/yourusername',
-      href: 'https://github.com/yourusername',
+      value: 'github.com/zaplin0',
+      href: 'https://github.com/zaplin0',
     },
     {
       icon: MessageSquare,
       label: 'Discord',
       value: 'username#1234',
-      href: 'https://discord.com',
+      href: 'https://discord.com/1424403618634661888',
     },
     {
       icon: Send,
