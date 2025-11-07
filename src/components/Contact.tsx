@@ -19,7 +19,7 @@ const Contact = () => {
       icon: MessageSquare,
       label: 'Discord',
       value: 'username#1234',
-      href: 'https://discord.com/1424403618634661888',
+      href: 'https://discord.com/users/1424403618634661888',
     },
     {
       icon: Send,

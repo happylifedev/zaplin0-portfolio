@@ -78,13 +78,13 @@ const Hero = () => {
 
           {/* Social Links */}
           <div className="flex gap-4 pt-8">
-            <a href="mailto:" className="p-3 rounded-full bg-card border border-border hover:border-primary transition-all glow-effect hover:scale-110">
+            <a href="strongmandev1@gmail.com" className="p-3 rounded-full bg-card border border-border hover:border-primary transition-all glow-effect hover:scale-110">
               <Mail className="w-5 h-5" />
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-card border border-border hover:border-primary transition-all glow-effect hover:scale-110">
+            <a href="https://github.com/zaplin0" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-card border border-border hover:border-primary transition-all glow-effect hover:scale-110">
               <Github className="w-5 h-5" />
             </a>
-            <a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-card border border-border hover:border-primary transition-all glow-effect hover:scale-110">
+            <a href="https://discord.com/users/1424403618634661888" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-card border border-border hover:border-primary transition-all glow-effect hover:scale-110">
               <MessageSquare className="w-5 h-5" />
             </a>
             <a href="https://t.me" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full bg-card border border-border hover:border-primary transition-all glow-effect hover:scale-110">
