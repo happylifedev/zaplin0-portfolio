@@ -12,7 +12,7 @@ import creationAutomationPlatform from '../assets/projects/6.jpg';
 import solanaToDoListDApp from '../assets/projects/7.jpg';
 import aiAgent from '../assets/projects/8.jpg';
 import pumpfunEvm from '../assets/projects/9.jpg';
-
+import closedDigitalLaunchpad from '../assets/projects/10.jpg';
 type ProjectCategory = 'all' | 'fullstack' | 'blockchain';
 
 interface Project {
@@ -129,14 +129,14 @@ const projects: Project[] = [
   },
   {
     id: 10,
-    title: 'Pumpfun-EVM',
-    description: 'Solidity contract for PumpFun-style token launch on EVM with minting, swap, bonding curve, and Uniswap migration features.',
+    title: 'Closed-Digital-Launchpad',
+    description: 'A vetted token-launch platform on Solana that promises only fair, bot-free drops with locked liquidity and trading rewards.',
     category: 'blockchain',
-    tech: ['solidity', 'evm', 'smartcontract', ],
-    github: 'https://github.com/zaplin0/PumpFun-EVM-Fork-Smart-Contract',
-    demo: 'https://ape.store',
-    fullDescription: 'Solidity contract for PumpFun-style token launch on EVM with minting, swap, bonding curve, and Uniswap migration features.',
-    image: pumpfunEvm,
+    tech: ['solana', 'launchpad', 'rust'],
+    github: 'https://github.com/zaplin0/Closed-Digital-Launchpad',
+    demo: 'https://www.closed.digital/',
+    fullDescription: 'A vetted token-launch platform on Solana that promises only fair, bot-free drops with locked liquidity and trading rewards.',
+    image: closedDigitalLaunchpad,
   },
  
 ];
