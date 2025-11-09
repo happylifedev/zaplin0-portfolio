@@ -10,7 +10,8 @@ import askMyPdf from '../assets/projects/4.jpg';
 import mintmeSolanaTokenCreator from '../assets/projects/5.jpg';
 import creationAutomationPlatform from '../assets/projects/6.jpg';
 import solanaToDoListDApp from '../assets/projects/7.jpg';
-
+import aiAgent from '../assets/projects/8.jpg';
+import pumpfunEvm from '../assets/projects/9.jpg';
 
 type ProjectCategory = 'all' | 'fullstack' | 'blockchain';
 
@@ -106,14 +107,36 @@ const projects: Project[] = [
   },
   {
     id: 8,
-    title: 'Solana-To-Do-List-DApp',
-    description: 'A blockchain-powered task manager.',
+    title: 'AI-Agent',
+    description: 'An AI agent that can help you with your tasks.',
+    category: 'fullstack',
+    tech: ['ai', 'agent', 'python', 'fastapi'],
+    github: 'https://github.com/zaplin0/AI-Agent',
+    demo: 'https://strideagents.com',
+    fullDescription: 'Open-source framework for building and deploying autonomous AI agents, designed to help businesses, developers, and teams automate tasks, scale operations, and innovate with AI.',
+    image: aiAgent,
+  },
+  {
+    id: 9,
+    title: 'Pumpfun-EVM',
+    description: 'Solidity contract for PumpFun-style token launch on EVM with minting, swap, bonding curve, and Uniswap migration features.',
     category: 'blockchain',
-    tech: ['solana', 'dapp', 'smartcontract', 'manager'],
-    github: 'https://github.com/zaplin0/Solana-To-Do-List-DApp',
-    demo: 'https://chodo.netlify.app',
-    fullDescription: 'A blockchain-powered task manager. Deploy or connect to devnet/localnet, update app.config.json, and start with npm run web:start.',
-    image: solanaToDoListDApp,
+    tech: ['solidity', 'evm', 'smartcontract', ],
+    github: 'https://github.com/zaplin0/PumpFun-EVM-Fork-Smart-Contract',
+    demo: 'https://ape.store',
+    fullDescription: 'Solidity contract for PumpFun-style token launch on EVM with minting, swap, bonding curve, and Uniswap migration features.',
+    image: pumpfunEvm,
+  },
+  {
+    id: 10,
+    title: 'Pumpfun-EVM',
+    description: 'Solidity contract for PumpFun-style token launch on EVM with minting, swap, bonding curve, and Uniswap migration features.',
+    category: 'blockchain',
+    tech: ['solidity', 'evm', 'smartcontract', ],
+    github: 'https://github.com/zaplin0/PumpFun-EVM-Fork-Smart-Contract',
+    demo: 'https://ape.store',
+    fullDescription: 'Solidity contract for PumpFun-style token launch on EVM with minting, swap, bonding curve, and Uniswap migration features.',
+    image: pumpfunEvm,
   },
  
 ];
